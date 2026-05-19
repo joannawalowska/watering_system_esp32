@@ -1,6 +1,6 @@
 #include <Arduino.h>
-#include "../include/wifi_connection.cpp"
-#include <Adafruit_BMP085.h>
+#include "../include/wifi_connection.h"
+
 
 
 void setup() {
@@ -12,5 +12,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   connectInternet();
-  printDateTime();
+  delay(1000);
+  
+  delay(1000);
 }

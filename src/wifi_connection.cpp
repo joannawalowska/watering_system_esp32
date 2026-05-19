@@ -1,10 +1,7 @@
-#include <Arduino.h>
-#include <WiFi.h>
-#include <time.h>
-#include "wifi_config.cpp"
+#include "../include/wifi_connection.h"
 
 const char* ntpServer = "pool.ntp.org";
-const long gmtOffset_sec = -1000;    
+const long gmtOffset_sec = -1500;    
 const int daylightOffset_sec = 3600; 
 bool isConnected = false;
 
@@ -17,7 +14,9 @@ void printDateTime() {
   }
   char formattedTime[80];  // Buffer to store the formatted string
   strftime(formattedTime, sizeof(formattedTime), "%A, %B %d %Y %H:%M:%S", &timeinfo);
+  //strftime(formattedTime, sizeof(formattedTime), "%H", &timeinfo);
   Serial.println(formattedTime);
+  //Serial.println( sizeof(formattedTime) );
 }
 
 void startupInternet() {
@@ -41,3 +40,24 @@ void connectInternet() {
   }
 }
 
+char getHour() {
+  char hour = 0;
+  
+  struct tm timeinfo;
+  if (!getLocalTime(&timeinfo)) {
+    Serial.println("Failed to obtain time");
+    return hour;
+  }
+  char formattedTime[5];
+  strftime(formattedTime, sizeof(formattedTime), "%H", &timeinfo);
+  Serial.println(formattedTime);
+  return hour;
+}
+
+bool getConnectedStatus() {
+  if(isConnected) {
+    Serial.println("TAK");
+  }
+  return isConnected;
+}
+  
