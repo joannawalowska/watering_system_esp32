@@ -3,7 +3,7 @@
 #include <string>
 #include <time.h>
 #include "wifi_config.cpp"
-/* you need to create file wifi_config
+/* you need to create file wifi_config.cpp
 #define WIFI_SSID "name od your wifi"
 #define WIFI_PASSWORD "your wifi_password"
 */

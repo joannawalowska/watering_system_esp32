@@ -1,12 +1,8 @@
-#include <Arduino.h>
-#include <Adafruit_BMP085.h>
+#include "../include/temp.h"
 
 Adafruit_BMP085 bmp;
 
-void tempStartup();
-int getTemp();
-
-void tempStartup() {
+void startupTemp() {
 
     if(!bmp.begin()){
         Serial.println("Error temperature sensor");
