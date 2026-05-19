@@ -1,7 +1,7 @@
 #include "../include/wifi_connection.h"
 
 const char* ntpServer = "pool.ntp.org";
-const long gmtOffset_sec = -1500;    
+const long gmtOffset_sec = -18000;    
 const int daylightOffset_sec = 3600; 
 bool isConnected = false;
 
